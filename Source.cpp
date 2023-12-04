@@ -1,19 +1,33 @@
 #include <iostream>
-
+#include <ctime>
 using namespace std;
 
 int main() {
+	srand(time(NULL));
+	setlocale(LC_ALL, "Russian");
 
-    int max = 0;
-    int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+	int arr[10]{};
+	for (int i = 0; i < 10; i++) {
+		arr[i] = rand() % 99;
+		cout << arr[i] << " ";
+	}
+	//Делаю пузырьковую сортировку
+	int numb = 0;
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 9; j++) {
+			if (arr[j] > arr[j + 1]) {
+				numb = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = numb;
+			}
+		}
+	}
+	cout << endl << endl;
 
-    for (int i = 1; i < 12; i++) {
-        if (arr[i] > arr[max]) {
-            max = i;
-        }
-    }
+	for (int i = 0; i < 10; i++) {
+		cout << arr[i] << " ";
+	}
 
-    cout << "Maximum element is " << arr[max] << " at index " << max << endl;
 
-    return 0;
+	return 0;
 }
