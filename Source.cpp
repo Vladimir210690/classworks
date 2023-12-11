@@ -1,33 +1,32 @@
 #include <iostream>
 #include <ctime>
+
 using namespace std;
 
-int main() {
-	srand(time(NULL));
-	setlocale(LC_ALL, "Russian");
-
-	int arr[10]{};
-	for (int i = 0; i < 10; i++) {
-		arr[i] = rand() % 99;
-		cout << arr[i] << " ";
+void Revers(int arr[], int n) {
+	for (int i = 0, j = n - 1; i < j; i++, j--) {
+		swap(arr[i], arr[j]);
 	}
-	//Делаю пузырьковую сортировке
-	int numb = 0;
-	for (int i = 0; i < 10; i++) {
-		for (int j = 0; j < 9; j++) { //Очень важно гнать цикл до 9, чтобы не сравнивать последнее значение с мусором
-			if (arr[j] > arr[j + 1]) {
-				numb = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = numb;
-			}
-		}
+}
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	srand(time(NULL));
+
+	const int SIZE = 10;
+
+	int mass[SIZE]{};
+
+	for (int i = 0; i < SIZE; i++) {
+		mass[i] = rand() % 100;
+		cout << mass[i] << " ";
 	}
 	cout << endl << endl;
+	Revers(mass, SIZE);
 
-	for (int i = 0; i < 10; i++) {
-		cout << arr[i] << " ";
+	for (int i = 0; i < SIZE; i++) {
+		cout << mass[i] << " ";
 	}
-
 
 	return 0;
 }
