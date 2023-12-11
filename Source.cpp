@@ -9,6 +9,18 @@ void Revers(int arr[], int n) {
 	}
 }
 
+void Bubble(int bubble[], int n) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n - 1; j++) {
+			if (bubble[j] < bubble[j + 1]) {
+				swap(bubble[j], bubble[j + 1]);
+			}
+		}
+	}
+
+}
+
+
 int main() {
 	setlocale(LC_ALL, "Russian");
 	srand(time(NULL));
@@ -19,6 +31,12 @@ int main() {
 
 	for (int i = 0; i < SIZE; i++) {
 		mass[i] = rand() % 100;
+		cout << mass[i] << " ";
+	}
+	cout << endl << endl;
+	Bubble(mass, SIZE);
+
+	for (int i = 0; i < SIZE; i++) {
 		cout << mass[i] << " ";
 	}
 	cout << endl << endl;
