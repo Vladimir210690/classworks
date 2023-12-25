@@ -12,6 +12,8 @@ void Revers(int x, int y) {
 
 int main() {
 
+	int x = 15;
+	int y = 15;
 	for (int i = 0; i < 10; i++) {
 		cout << "#" << endl;
 	}
@@ -26,9 +28,29 @@ int main() {
 	}
 	cout << endl;
 	
+	int t = 0;
+	while (true) {
 
-	Revers(15, 15);
-	cout << 1;
+		if (_kbhit()) {
+			switch (_getch()) {
+			case 'a':
+				x--;
+				break;
+			case 'd':
+				x++;
+				break;
+			case 'w':
+				y--;
+				break;
+			case 's':
+				y++;
+				break;
+			}
+		}
+		t = rand() % 10;
+		Revers(x, y);
+		cout << t;
+	}
 	_getch();
 
 	return 0;
