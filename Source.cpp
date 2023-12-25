@@ -1,46 +1,29 @@
 #include <iostream>
-#include <ctime>
+#include <windows.h>
 
 using namespace std;
 
-int Randomizer(int a, int b) {
-	a = rand() % 2;
-	b = rand() % 2;
+void Revers(int x, int y) {
 
-	if (a == b) {
-		return Randomizer(a, b);
-	}
-	else {
-		int c = a + b;
-		return c;
-	}
+	COORD rev{ x,y };
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), rev);
 }
 
-int Draw(int a) {
-	if (a != 0) {
-		a--;
-		cout << "#\t";
-		Draw(a);
-	}
-	else {
-		return 0;
-	}
-}
+int main() {
 
-int main(){
-	srand(time(NULL));
-	
-	int a = 8;
-	int b = 0;
-
-	int g = a;
-	while (g != 0) {
-		cout << Randomizer(a, b) << "\t";
-		g--;
+	for (int i = 0; i < 10; i++) {
+		cout << "#" << endl;
 	}
-	cout << endl << endl;
+	for (int i = 0; i < 10; i++) {
+		cout << "#";
+	}
+	cout << endl;
 	
-	Draw(a);
+	for (int i = 0; i < 11; i++) {
+		Revers(10, i);
+		cout << "#" << endl;
+	}
+	cout << endl;
 
 	return 0;
 }
