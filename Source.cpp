@@ -1,30 +1,32 @@
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 
-template <typename T1, typename T2>
+int Randomizer(int a, int b) {
+	a = rand() % 2;
+	b = rand() % 2;
 
-T1 Foo(T1 a, T2 b) {
+	if (a == b) {
+		return Randomizer(a, b);
+	}
+	else {
+		int c = a + b;
+		return c;
+	}
 
-
-	return a + b;
 }
 
-auto Foo2(int a, double b) {
 
-	return a + b;
-}
+int main(){
+	srand(time(NULL));
+	
+	int a = 0;
+	int b = 0;
+	while (true) {
+		cout << Randomizer(a, b);
 
-short main() {
-	setlocale(LC_ALL, "RU");
-	long long number = 123456789123456789;
-
-	cout << sizeof(long long) << endl;
-	cout << number << endl;
-	cout << "Привет мир" << endl;
-	cout << Foo(3.5,5) << endl;
-	cout << Foo2(3, 5.9) << endl;
+	}
 
 	return 0;
 }
-
