@@ -1,5 +1,6 @@
 #include <iostream>
 #include <windows.h>
+#include <conio.h>
 
 using namespace std;
 
@@ -19,11 +20,16 @@ int main() {
 	}
 	cout << endl;
 	
-	for (int i = 0; i < 11; i++) {
-		Revers(10, i);
+	for (int i = 0; i < 10; i++) {
+		Revers(9, i);
 		cout << "#" << endl;
 	}
 	cout << endl;
+	
+
+	Revers(15, 15);
+	cout << 1;
+	_getch();
 
 	return 0;
 }
