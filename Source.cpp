@@ -14,19 +14,33 @@ int Randomizer(int a, int b) {
 		int c = a + b;
 		return c;
 	}
-
 }
 
+int Draw(int a) {
+	if (a != 0) {
+		a--;
+		cout << "#\t";
+		Draw(a);
+	}
+	else {
+		return 0;
+	}
+}
 
 int main(){
 	srand(time(NULL));
 	
-	int a = 0;
+	int a = 8;
 	int b = 0;
-	while (true) {
-		cout << Randomizer(a, b);
 
+	int g = a;
+	while (g != 0) {
+		cout << Randomizer(a, b) << "\t";
+		g--;
 	}
+	cout << endl << endl;
+	
+	Draw(a);
 
 	return 0;
 }
