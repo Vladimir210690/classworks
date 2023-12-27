@@ -4,54 +4,76 @@
 
 using namespace std;
 
-void Revers(int x, int y) {
-
-	COORD rev{ x,y };
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), rev);
+void Curs(int x, int y) {
+	COORD cur = { x,y };
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cur);
 }
 
-int main() {
+class Game {
+public:
+	int x = 10;
+	int y = 10;
+	bool pero = true;
+	bool drawOwer = false;
 
-	int x = 15;
-	int y = 15;
-	for (int i = 0; i < 10; i++) {
-		cout << "#" << endl;
-	}
-	for (int i = 0; i < 10; i++) {
-		cout << "#";
-	}
-	cout << endl;
-	
-	for (int i = 0; i < 10; i++) {
-		Revers(9, i);
-		cout << "#" << endl;
-	}
-	cout << endl;
-	
-	int t = 0;
-	while (true) {
-
-		if (_kbhit()) {
-			switch (_getch()) {
-			case 'a':
-				x--;
-				break;
-			case 'd':
-				x++;
-				break;
-			case 'w':
-				y--;
-				break;
-			case 's':
-				y++;
-				break;
-			}
+	void Draw() {
+		if (pero == true) {
+			cout << "#";
 		}
-		t = rand() % 10;
-		Revers(x, y);
-		cout << t;
+		else if (pero == false) {
+			cout << " ";
+		}
 	}
-	_getch();
 
+	int Motion() {
+
+		while (!drawOwer) {
+			Curs(x,y);
+			if (_kbhit()) {
+				switch (_getch()) {
+				case 'a':
+					x--;
+					break;
+				case 'd':
+					x++;
+					break;
+				case 'w':
+					y--;
+					break;
+				case 's':
+					y++;
+					break;
+				case 'q':
+					if (pero == true) {
+						pero = false;
+					}
+					else if (pero == false) {
+						pero = true;
+					}
+					break;
+				case 'e':
+					drawOwer = true;
+					break;
+				}
+				
+
+			}
+			Draw();
+		}
+		return 0;
+	}
+
+	
+};
+
+
+int main() {
+	
+	Game game;
+	game.Motion();
+	cout << endl;
+	
+	
+	
 	return 0;
 }
