@@ -1,79 +1,44 @@
 #include <iostream>
-#include <windows.h>
-#include <conio.h>
 
 using namespace std;
 
-void Curs(int x, int y) {
-	COORD cur = { x,y };
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cur);
+void Swap(int* arr, int* brr, int SIZE) {
+
+	for (int i = 0; i < SIZE; i++) {
+		*(brr + i) = *(arr + i);
+	}
 }
-
-class Game {
-public:
-	int x = 10;
-	int y = 10;
-	bool pero = true;
-	bool drawOwer = false;
-
-	void Draw() {
-		if (pero == true) {
-			cout << "#";
-		}
-		else if (pero == false) {
-			cout << " ";
-		}
-	}
-
-	int Motion() {
-
-		while (!drawOwer) {
-			Curs(x,y);
-			if (_kbhit()) {
-				switch (_getch()) {
-				case 'a':
-					x--;
-					break;
-				case 'd':
-					x++;
-					break;
-				case 'w':
-					y--;
-					break;
-				case 's':
-					y++;
-					break;
-				case 'q':
-					if (pero == true) {
-						pero = false;
-					}
-					else if (pero == false) {
-						pero = true;
-					}
-					break;
-				case 'e':
-					drawOwer = true;
-					break;
-				}
-				
-
-			}
-			Draw();
-		}
-		return 0;
-	}
-
-	
-};
 
 
 int main() {
-	
-	Game game;
-	game.Motion();
-	cout << endl;
-	
-	
-	
+	setlocale(LC_ALL, "Russian");
+	//int a = 0;
+	//cout << "Сколько выделить памяти? ";
+	//cin >> a;
+
+	//int* pntr = new int[a];
+
+	//for (int i = 0; i < a; i++) {
+
+	//	*(pntr + i) = i;
+	//	cout << *(pntr + i) << "\t";
+	//}
+	//cout << endl;
+
+	//delete pntr;
+	//pntr = NULL;
+
+	int mass1[10]{ 3,5,1,11,6,78,43,4,5,9 };
+	int mass2[10]{};
+
+	int* pn1 = mass1;
+	int* pn2 = mass2;
+
+	Swap(pn1,pn2, 10);
+
+	for (int i = 0; i < 10; i++) {
+		cout << *(pn2 + i) << " ";
+	}
+
 	return 0;
 }
