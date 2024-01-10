@@ -1,44 +1,26 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-void Swap(int* arr, int* brr, int SIZE) {
-
-	for (int i = 0; i < SIZE; i++) {
-		*(brr + i) = *(arr + i);
-	}
-}
-
-
 int main() {
-	setlocale(LC_ALL, "Russian");
-	//int a = 0;
-	//cout << "Сколько выделить памяти? ";
-	//cin >> a;
+	const char str[] = "Hello World";
+	cout << strlen(str) << "\t";
+	const char* str2 = "Goodbuy";
+	cout << strlen(str2) << "\t";
 
-	//int* pntr = new int[a];
+	string str3 = "motion";
+	cout << str3.length() << "\t";
 
-	//for (int i = 0; i < a; i++) {
+	char str4[100];
+	str4[0] = 'H';
+	str4[1] = '\0';
+	cout << str4 << "\t";
 
-	//	*(pntr + i) = i;
-	//	cout << *(pntr + i) << "\t";
-	//}
-	//cout << endl;
+	const char* str5 = "template";
+	const char* str6 = "template";
 
-	//delete pntr;
-	//pntr = NULL;
-
-	int mass1[10]{ 3,5,1,11,6,78,43,4,5,9 };
-	int mass2[10]{};
-
-	int* pn1 = mass1;
-	int* pn2 = mass2;
-
-	Swap(pn1,pn2, 10);
-
-	for (int i = 0; i < 10; i++) {
-		cout << *(pn2 + i) << " ";
-	}
+	cout << strcmp(str5, str6);
 
 	return 0;
 }
