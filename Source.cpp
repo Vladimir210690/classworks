@@ -1,13 +1,30 @@
 #include <iostream>
+#include <string>
+using namespace std;
 
-void main() {
-	std::cout << "Hello Word";
+class human {
+public:
+	int age = 0;
+	int weight = 0;
+	string name;
 
-	int *pn = new int[1000];
-	for (int i = 0; i < 1000; i++) {
-		*(pn + i) = 2;
-		std::cout << *pn << "\t";
-	}
-	delete[]pn;
-	pn = nullptr;
+};
+
+
+class people : public human {
+public:
+	int age = 0;
+
+};
+
+
+
+int main() {
+	people first;
+	first.weight = 10;
+	cin >> first.name;
+	cout << first.weight << "\t" << first.name;
+
+
+	return 0;
 }
