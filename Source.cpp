@@ -16,7 +16,7 @@ int main() {
 
 	string names;
 
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 3; i++) { // Заполняем структуру данными людей
 		cout << "Введите ваше имя: ";
 		cin >> arr[i].name;
 		cout << "Введите ваш возраст: ";
@@ -25,8 +25,9 @@ int main() {
 	}
 	cout << endl << endl;
 
-	for (int i = 0; i < 3; i++) {
-		cout << i << "\t" << arr[i].name << "\t" << arr[i].age << endl;
+	cout << "ID\t" << "name\t" << "age" << endl;
+	for (int i = 0; i < 3; i++) { // Выгружаем структуру с данными людей
+		cout << i + 1 << "\t" << arr[i].name << "\t" << arr[i].age << endl;
 	}
 	return 0;
 }
