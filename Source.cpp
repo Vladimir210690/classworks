@@ -1,30 +1,32 @@
 #include <iostream>
 #include <string>
+#include <ctime>
+
 using namespace std;
 
-class human { // Наследуемый класс
-public:
+struct People {
 	int age = 0;
-	int weight = 0;
 	string name;
-
 };
-
-
-class people : public human { // Осуществление наследования
-public:
-	int age = 0;
-
-};
-
-
+People arr[3];
 
 int main() {
-	people first; // Создание обьекта для главного класса и вывод данных наследуемого
-	first.weight = 10;
-	cin >> first.name;
-	cout << first.weight << "\t" << first.name;
+	srand(time(NULL));
+	setlocale(LC_ALL, "Russian");
 
+	string names;
 
+	for (int i = 0; i < 3; i++) {
+		cout << "������� ���� ���: ";
+		cin >> arr[i].name;
+		cout << "������� ��� �������: ";
+		cin >> arr[i].age;
+		system("cls");
+	}
+	cout << endl << endl;
+
+	for (int i = 0; i < 3; i++) {
+		cout << i << "\t" << arr[i].name << "\t" << arr[i].age << endl;
+	}
 	return 0;
 }
