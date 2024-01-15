@@ -17,9 +17,9 @@ int main() {
 	string names;
 
 	for (int i = 0; i < 3; i++) {
-		cout << "Ââåäèòå âàøå èìÿ: ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ð°ÑˆÐµ Ð¸Ð¼Ñ: ";
 		cin >> arr[i].name;
-		cout << "Ââåäèòå âàø âîçðàñò: ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ð°Ñˆ Ð²Ð¾Ð·Ñ€Ð°ÑÑ‚: ";
 		cin >> arr[i].age;
 		system("cls");
 	}
