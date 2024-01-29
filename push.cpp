@@ -21,9 +21,21 @@ void push_front(List* lst, int date) {
 }
 
 void push_back(List* lst, int date) {
-	Node* node = new Node;
+	
 	Node* ptr = lst->first;
-	node->date = date;
+	if (ptr == nullptr) {
+		push_front(lst, date);
+	}
+	else {
+		while (ptr->next != nullptr) {
+			ptr = ptr->next;
+		}
+		Node* node = new Node;
+		node->date = date;
+		node->next = nullptr;
+		ptr->next = node;
+		lst->size++;
+	}
 
 	
 	
