@@ -7,7 +7,7 @@ int row = 10;
 
 int main()
 {
-	for (int i = 0; i < col; i++)
+	for (int i = 0; i < col; i++) // Создаем 2 вложенных цикла для заполнения таблици умножения
 	{
 		for (int j = 0; j < row; j++)
 		{
