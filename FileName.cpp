@@ -25,11 +25,11 @@ public:
 		cout << *number << "\t" << *year << "\t" << *name << endl;
 	}
 	Cars() {
-		cout << "Êîíñòğóêòîğ ñğàáîòàë" << endl;
+		cout << "ĞšĞ¾Ğ½ÑÑ‚Ñ€ÑƒĞºÑ‚Ğ¾Ñ€ ÑÑ€Ğ°Ğ±Ğ¾Ñ‚Ğ°Ğ»" << endl;
 	}
 	~Cars() {
 		delete number, year, name;
-		cout << "Äåñòğóêòîğ ñğàáîòàë" << endl;
+		cout << "Ğ”ĞµÑÑ‚Ñ€ÑƒĞºÑ‚Ğ¾Ñ€ ÑÑ€Ğ°Ğ±Ğ¾Ñ‚Ğ°Ğ»" << endl;
 	}
 };
 
