@@ -2,45 +2,38 @@
 
 using namespace std;
 
-class Cars {
-	
-private:
-	int* number = 0;
-	int *year = 0;
-	string* name = 0;
+class House {
 public:
-	void Motion() {
-		cout << "Start motion" << endl;
+	House(int price, int year){
+		this->price = price;
+		this->year = year;
 	}
-	void Data() {
-		number = new int();
-		year = new int();
-		name = new string();
+	~House() {
+
 	}
-	void Input() {
-		cout << "Input number, year, name: " << endl;
-		cin >> *number >> *year >> * name;
-	}
-	void Print() {
-		cout << *number << "\t" << *year << "\t" << *name << endl;
-	}
-	Cars() {
-		cout << "Конструктор сработал" << endl;
-	}
-	~Cars() {
-		delete number, year, name;
-		cout << "Деструктор сработал" << endl;
-	}
+private:
+	int price;
+	int year;
+	friend bool operator == (const House& first, const House& second);
 };
 
+bool operator == (const House& first, const House & second) {
+	if (first.price == second.price && first.year == second.year) {
+		return true;
+	}
+	else
+		return false;
+}
+
+
 int main() {
-	setlocale(LC_ALL, "Russian");
-	Cars Moto;
-	Moto.Motion();
-	Moto.Data();
-	Moto.Input();
-	Moto.Motion();
-	Moto.Print();
-	
+
+	House Domus(145,1990);
+	House Palatium(596, 2010);
+	House Village(596, 2010);
+
+	bool a = (Palatium == Domus);
+	cout << a;
+
 	return 0;
 }
