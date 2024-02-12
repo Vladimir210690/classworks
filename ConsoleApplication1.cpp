@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Figure {
+class Figure { // Создаем главный класс фигур
 protected:
 	int x;
 	int y;
@@ -13,7 +13,7 @@ public:
 	virtual double square() = 0;
 };
 
-class Triangle : public Figure {
+class Triangle : public Figure { // Создаем наследуемый класс треугольник
 protected:
 	int a;
 	int b;
@@ -28,7 +28,7 @@ public:
 
 };
 
-class Circle : public Figure {
+class Circle : public Figure { // создаем наследуемый класс круг
 protected:
 	int r;
 public:
@@ -40,7 +40,7 @@ public:
 	}
 };
 
-class Square : public Figure{
+class Square : public Figure{ // создаем наследуемый класс квадрат
 protected:
 	int c;
 public:
