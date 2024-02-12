@@ -1,4 +1,4 @@
-﻿#define _USE_MATH_DEFINES
+#define _USE_MATH_DEFINES
 #include <iostream>
 #include <cmath>
 //#define PI 3.14
@@ -69,7 +69,74 @@ int main() {
 	cout << "Circle: " << fir.square() << endl;
 	cout << "Square: " << llot.square() << endl;
 
+	char t;
+	const int arrsize = 3;
+	Figure* mass[arrsize];
+	int index = 0;
+	bool flag = true;
+
+	do {
+		cout << "Enter type Figure: " << endl;
+		cout << "T - треугольник " << endl;
+		cout << "C - круг " << endl;
+		cout << "S - квадрат " << endl;
+		cout << "! - выход " << endl;
+
+		cin >> t;
+		switch (t) {
+		case 'T':
+			Triangle * pntr = new Triangle;
+			int a, b;
+			cout << "Введите длинну сторон прямоугольного треугольника: ";
+			cin >> a >> b;
+
+			pntr->Set(a, b);
+			mass[index] = pntr;
+			index++;
+			break;
+		case 'C':
+			Circle * pntr1 = new Circle;
+			int r;
+			cout << "Введите радиус круга: ";
+			cin >> r;
+
+			pntr1->Set(r);
+			mass[index] = pntr1;
+			index++;
+
+			break;
+		case 'S':
+			Square * pntr2 = new Square;
+			int g;
+			cout << "Введите длинну стороны квадрата: ";
+			cin >> g;
+
+			pntr2->Set(g);
+			mass[index] = pntr2;
+			index++;
+
+
+			break;
+		case '!':
+			flag = false;
+			break;
+
+		default:
+			cout << "Error ";
+			break;
+		}
+
+		if (index == 3) {
+			flag = false;
+		}
+
+	} while (flag);
+
+	double ss = 0.0;
+	for (int i = 0; i < arrsize; i++) {
+		cout << "Площадь фигуры: " << i + 1 << " - " << mass[i]->square() << endl;
+	}
+
 	return 0;
 }
-
 
