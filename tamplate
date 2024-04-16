@@ -1,0 +1,50 @@
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+template<class T>
+void init(T mass[], int N) {
+    
+    for (int i = 0; i < N; i++) {
+        mass[i] = rand() % N;
+    }
+}
+template<class T>
+void out(T mass[], int N) {
+   
+    for (int i = 0; i < N; i++) {
+        cout << mass[i] << endl;
+    }
+}
+
+template<class T>
+double sr(T mass[], int N) {
+    double sum = 0;
+    for (int i = 0; i < N; i++) {
+        sum += mass[i];
+    }
+    double total = sum / N;
+    return total;
+}
+
+
+int main()
+{
+    srand(time(NULL));
+    const int N = 10;
+    int mass[N];
+    double mass2[N];
+
+    init<int>(mass, N);
+    out<int>(mass, N);
+
+    cout << endl;
+    cout << sr(mass, N) << " sr" << endl;
+    init<double>(mass2, N);
+    out<double>(mass2, N);
+    cout << endl;
+    cout << sr(mass2, N) << " sr" << endl;
+
+    return 0;
+}
