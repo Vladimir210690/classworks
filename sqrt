@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+template<class T>
+T sqrt(T a, T b) {
+    double x;
+    x = -b/a;
+    return x;
+}
+template<class T>
+T sqrt(T a, T b, T c) {
+    double x;
+    double ds;
+    ds = b * b - 4 * a * c;
+    if (ds > 0) {
+        x = -b + sqrt(ds) / 2 * a;
+        return x;
+    }
+    else if(ds == 0) {
+        x =  - b / (2 * a);
+        return x;
+    }
+}
+
+int main()
+{
+    double a = 4, b = -16, c = 10;
+
+    cout << sqrt(a, b) << endl;
+    cout << sqrt(a, b, c) << endl;
+
+    return 0;
+}
