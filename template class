@@ -1,0 +1,128 @@
+#include <iostream>
+#include <ctime>
+#include <iomanip>
+
+using namespace std;
+
+template<class T>
+class matrix {
+public:
+	int count = 3;
+	T** arr = new T * [count];
+	T** arr_2 = new T * [count];
+	T** arr_rez = new T * [count];
+
+	~matrix() {
+		for (int i = 0; i < count; i++) {
+			delete[]arr[i];
+			delete[]arr_2[i];
+			delete[]arr_rez[i];
+		}
+		delete[] arr;
+		delete[] arr_2;
+		delete[] arr_rez;
+	}
+
+	void init(T ** mas, int str, int stl) {
+		for (int i = 0; i < str; i++) {
+			mas[i] = new T[stl];
+		}
+	}
+
+	void input(T ** mas, int str, int stl) {
+		for (int i = 0; i < str; i++) {
+			for (int j = 0; j < stl; j++) {
+				mas[i][j] = rand() % 10;
+			}
+		}
+	}
+
+	void show_mas(T** mas, int str, int stl) {
+		for (int i = 0; i < str; i++) {
+			for (int j = 0; j < stl; j++) {
+				cout << setw(4) << mas[i][j];
+			}
+			cout << endl;
+		}
+	}
+
+	void sum(T** mas1, T** mas2, T** mas3, int n, int m, int z) {
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				mas3[i][j] = mas1[i][j] + mas2[i][j];
+			}
+		}
+	}
+
+	void sub(T** mas1, T** mas2, T** mas3, int n, int m, int z) {
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				mas3[i][j] = mas1[i][j] - mas2[i][j];
+			}
+		}
+	}
+
+	void mult(T** mas1, T** mas2, T** mas3, int n, int m, int z) {
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < z; j++) {
+				for (int k = 0; k < n; k++) {
+					mas3[i][j] += mas1[i][k] * mas2[k][j];
+				}
+			}
+		}
+	}
+};
+
+int main() {
+	srand(time(NULL));
+	matrix<int> Matrix;
+	int n = 3, m = 3, z = 3, select;
+	int** a, ** b, ** c;
+	a = new int* [n];
+	Matrix.init(a, n, m);
+	Matrix.input(a, n, m);
+	b = new int* [m];
+	Matrix.init(b, n, m);
+	Matrix.input(b, n, m);
+	c = new int* [z];
+	Matrix.init(c, n, m);
+	Matrix.input(c, n, m);
+
+	cout << "select data: " << endl;
+	cout << "input 1 of sum: " << endl;
+	cout << "input 2 of min: " << endl;
+	cout << "input 3 of mult: " << endl;
+	cin >> select;
+
+	switch (select) {
+	case 1:
+		cout << "matr 1: " << endl;
+		Matrix.show_mas(a, n, m);
+		cout << "matr 2: " << endl;
+		Matrix.show_mas(b, n, m);
+		cout << "matr 3: " << endl;
+		Matrix.sum(a, b, c, n, m, z);
+		Matrix.show_mas(c, n, m);
+		break;
+	case 2:
+		cout << "matr 1: " << endl;
+		Matrix.show_mas(a, n, m);
+		cout << "matr 2: " << endl;
+		Matrix.show_mas(b, n, m);
+		cout << "matr 3: " << endl;
+		Matrix.sub(a, b, c, n, m, z);
+		Matrix.show_mas(c, n, m);
+		break;
+	case 3:
+		cout << "matr 1: " << endl;
+		Matrix.show_mas(a, n, m);
+		cout << "matr 2: " << endl;
+		Matrix.show_mas(b, n, m);
+		cout << "matr 3: " << endl;
+		Matrix.mult(a, b, c, n, m, z);
+		Matrix.show_mas(c, n, m);
+		break;
+	}
+
+	return 0;
+}
